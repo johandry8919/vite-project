@@ -1,10 +1,9 @@
 import Modal from '../Modal/Modal'
 
 
-function  Seciones({img , posicion , titulo , descricion , estilo , id ,valor,restas}) {
+function  Seciones({img , posicion , titulo , descricion , estilo , id ,valor,restas ,Instrucciones,Prepara,Mezcla}) {
     return (
         <>
-
         <section className={estilo}>
         {posicion == 'left' ?
         <div className="mt-2 col-md-12 col-12 row  align-items-center justify-content-around">
@@ -23,7 +22,16 @@ function  Seciones({img , posicion , titulo , descricion , estilo , id ,valor,re
             </div>
 
 
-            <Modal Descriccion={restas} titulo={titulo} staticBackdrop={valor}/>
+            <Modal 
+            Descriccion={restas}
+             titulo={titulo} 
+             staticBackdrop={valor}
+              restas={restas} 
+              Instrucciones={Instrucciones}
+              Prepara={Prepara}
+              Mezcla={Mezcla}
+
+              />
 
 
         </div>
@@ -43,7 +51,16 @@ function  Seciones({img , posicion , titulo , descricion , estilo , id ,valor,re
                 <img className="img-fluid" src={img} alt="Ensalada de Quinoa y Verduras" />
             </div>
 
-            <Modal Descriccion={restas} titulo={titulo}  staticBackdrop={valor}/>
+            <Modal
+             Descriccion={restas}
+             titulo={titulo} 
+              staticBackdrop={valor}
+               restas={restas}
+                Instrucciones={Instrucciones}
+                  Prepara={Prepara}
+                  Mezcla={Mezcla}
+
+                  />
             </div>
         }
         </section>
