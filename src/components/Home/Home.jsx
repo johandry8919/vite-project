@@ -5,11 +5,9 @@ import forde from "../../img/Food.png";
  import sopa from "../../img/sopa1.png";
 import Header from "../Header/Header";
 import Album from "../Album/Album";
-import Cookies from 'js-cookie';
-// import CookieAlert from './CookieAlert';
 import CookieAlert from '../CookieAlert';
 import { useCookies } from 'react-cookie';
-// posicion , titulo , descricion     left: ;
+
 
 const Ingrdiente = [
      {
@@ -97,8 +95,6 @@ const Mezcla  ={
 
 
 
-
-
 const Albums =[
     {
         id: 1,
@@ -156,14 +152,10 @@ const [cookies, setCookie] = useCookies(['cookieAccepted']);
   
   return (
     <>
- 
     <Header/>
     <main className="Home">
 
     {Ingrdiente.map( (element , index) => {
-
-        console.log(element)
-
         return(
             <>
             <Seciones 
