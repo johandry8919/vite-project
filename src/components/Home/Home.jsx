@@ -5,18 +5,58 @@ import forde from "../../img/Food.png";
  import sopa from "../../img/sopa1.png";
 import Header from "../Header/Header";
 import Album from "../Album/Album";
+import Cookies from 'js-cookie';
+// import CookieAlert from './CookieAlert';
+import CookieAlert from '../CookieAlert';
+import { useCookies } from 'react-cookie';
 // posicion , titulo , descricion     left: ;
 
+const Ingrdiente = [
+     {
+        id:'#staticBackdrop1',
+        titulo: 'Ensalada de Quinoa y Verduras:',
+        descriccion:'Quinoa, espinacas, tomate cherry, pepino, aguacate y aderezo de limón.',
+        estilo:'seccion seccion-2 row align-items-center',
+        valor:'staticBackdrop1',
+        img:forde,
+        posicion:'left'
 
-const titulo_1 = 'Ensalada de Quinoa y Verduras:';
-const titulo_2 = 'Pechuga de Pollo a la Parrilla con Limón:';
-const titulo_3 = 'Tacos de Pescado con Salsa de Aguacate:';
-const titulo_4 = 'Bowl de Burrito con Arroz Integral:';
 
-const descriccion_1 =  `Quinoa, espinacas, tomate cherry, pepino, aguacate y aderezo de limón. `
-const descriccion_2 =  `Ingredientes: Pechuga de pollo, aceite de oliva, ajo, limón, sal y pimienta. `
-const descriccion_3 =  `Ingredientes: Filete de pescado, tortillas de maíz, repollo rallado y salsa de aguacate. `
-const descriccion_4 =  `Ingredientes: Arroz integral, frijoles negros, maíz, aguacate, tomate y cilantro.`
+},
+     {
+        id:'#staticBackdrop2',
+        titulo: 'Pechuga de Pollo a la Parrilla con Limón:',
+        descriccion:'Ingredientes: Pechuga de pollo, aceite de oliva, ajo, limón, sal y pimienta.',
+        estilo:'seccion seccion-3 row align-items-center',
+        valor:'staticBackdrop2',
+        img:forde,
+        posicion:''
+
+
+},
+     {
+        id:'#staticBackdrop3',
+        titulo: 'Tacos de Pescado con Salsa de Aguacate:',
+        descriccion:'Ingredientes: Filete de pescado, tortillas de maíz, repollo rallado y salsa de aguacate.',
+        estilo:'seccion seccion-4 row align-items-center',
+        valor:'staticBackdrop3',
+        img:ensalada,
+        posicion:'left'
+
+
+},
+     {
+        id:'#staticBackdrop4',
+        titulo: 'Bowl de Burrito con Arroz Integral:',
+        descriccion:'Ingredientes: Arroz integral, frijoles negros, maíz, aguacate, tomate y cilantro.',
+        estilo:'seccion seccion-4 row align-items-center',
+        valor:'staticBackdrop4',
+        img:ensalada,
+        posicion:''
+
+
+},
+]
 
 
 
@@ -102,71 +142,49 @@ const Albums =[
 
 function Home() {
 
-    
+const [cookies, setCookie] = useCookies(['cookieAccepted']);
+
+  const handleAccept = () => {
+    setCookie('cookieAccepted', true, { path: '/' });
+  };
+
+  const handleReject = () => {
+    // Puedes realizar acciones específicas al rechazar las cookies
+  };
+
+
+  
   return (
     <>
  
     <Header/>
     <main className="Home">
-        <Seciones 
-        img={ensalada}
-         posicion={'left'}
-          titulo={titulo_1}
-           descricion={descriccion_1}
-            estilo={"seccion seccion-2 row align-items-center"}
-             id={"#staticBackdrop1"}
-              valor={'staticBackdrop1'}
+
+    {Ingrdiente.map( (element , index) => {
+
+        console.log(element)
+
+        return(
+            <>
+            <Seciones 
+            key={index}
+            img={element.img}
+            posicion={element.posicion}
+            titulo={element.estilo}
+             descricion={element.descriccion}
+                estilo={element.estilo}
+                id={element.id}
+                valor={element.valor}
               restas={Receta_1} 
               Instrucciones={Instrucciones_1}
               Prepara={Prepara_1}
               Mezcla={Mezcla}
 
               />
+            </>
+        )
+    })}
 
-        <Seciones
-         img={forde}
-          posicion={''}
-           titulo={titulo_2}
-            descricion={descriccion_2}
-             estilo={"seccion seccion-3 row align-items-center" }
-              id={"#staticBackdrop2"}
-               valor={'staticBackdrop2'}
-                restas={Receta_1} 
-                Instrucciones={Instrucciones_1}
-                Prepara={Prepara_1}
-                Mezcla={Mezcla}
-
-                />
-        <Seciones 
-        img={sopa}
-         posicion={'left'}
-          titulo={titulo_3}
-           descricion={descriccion_3}
-             estilo={"seccion seccion-4 row align-items-center"}
-              id={"#staticBackdrop3"}
-               valor={'staticBackdrop3'}
-                restas={Receta_1}
-                 Instrucciones={Instrucciones_1}
-                 Prepara={Prepara_1}
-                 Mezcla={Mezcla}
-                 />
-
-        <Seciones 
-        img={sopa} 
-        posicion={''} 
-        titulo={titulo_4}
-         descricion={descriccion_4}
-           estilo={"seccion seccion-4 row align-items-center"}
-            id={"#staticBackdrop4"} 
-            valor={'staticBackdrop4'}
-             restas={Receta_1}
-              Instrucciones={Instrucciones_1}
-              Prepara={Prepara_1}
-              Mezcla={Mezcla}
-
-              />
-
-       
         <h2 className="text-center p-3">MAS RESETAS SALUDAVBLE <i className="bi bi-calendar2-event"></i> </h2>
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 bg-dark">
 
@@ -175,6 +193,11 @@ function Home() {
             <Album key={element.id} Titulo={element.Titulo} DesCricion={element.Descriccion} imagenes={element.Img}/>
         )})}
         </div>
+
+        <div>
+
+      <CookieAlert onAccept={handleAccept} onReject={handleReject} />
+    </div>
 
     </main>
     </>
