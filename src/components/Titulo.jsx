@@ -4,7 +4,7 @@
 function Titulo({titulo}){
     return(
      <>
-     <h1   className="Titulo  f-1">{titulo}</h1>
+     <h1   className="Titulo  fs-1">{titulo}</h1>
     
      </>
     )

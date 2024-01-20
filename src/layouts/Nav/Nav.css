@@ -1,0 +1,8 @@
+nav{
+    position: fixed;
+    top: 0;
+    background: rgb(162,98,130);
+    background: linear-gradient(90deg, rgba(162,98,130,1) 0%, rgba(2,3,9,1) 50%, rgba(162,98,130,0.896796218487395) 100%);
+    z-index: 5;
+    font-size: 20px;
+}

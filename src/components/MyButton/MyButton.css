@@ -1,9 +1,10 @@
 button {
-    --s: .25em; /* control the wave*/
-    padding: 20px;
-
-    background-color: #BF4D28;
-    color: #fff;
+    --s: .15em; /* control the wave*/
+    font-size: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    color: #fafafa;
     --_s: calc(var(--s)*4) 51% repeat-x;
     --_r: calc(1.345*var(--s)) at left 50%;
     --_g1: #000 99%,#0000 101%;
@@ -58,10 +59,10 @@ button {
   
 
   button {
-    font-family: system-ui, sans-serif;
     font-weight: bold;
-    font-size: 4rem;
     margin: 0;
     cursor: pointer;
     border: none;
+    background: rgb(162,98,130);
+background: linear-gradient(90deg, rgba(162,98,130,1) 0%, rgba(29,56,253,1) 50%, rgba(162,98,130,0.896796218487395) 100%);
   }

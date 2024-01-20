@@ -1,0 +1,39 @@
+
+
+header{
+    background-image: url('../../img/header.png');
+    background-repeat: no-repeat;
+    background-size:cover ;
+    background-position-y:-100px ;
+    min-height: 350px;
+
+}
+
+
+header h1 , p {
+    font-weight: bold;
+    text-wrap: wrap;
+}
+header div  p {
+    font-weight: bold;
+    text-wrap: wrap;
+    color: #fff;
+
+}
+
+
+
+
+@media (max-width: 800px) {
+    header{
+       
+        min-height: auto;
+        background-image: none;
+        color: #000000;
+        background: rgb(56,26,193);
+        background: linear-gradient(0deg, rgba(56,26,193,0.9304096638655462) 0%, rgba(236,179,55,1) 0%, rgba(0,125,27,0.9304096638655462) 100%);
+        text-wrap: wrap;
+
+      
+    }
+  }

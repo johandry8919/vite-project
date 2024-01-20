@@ -1,9 +1,11 @@
 import "./Style.css";
 import Seciones from "../Seciones/Seciones"; 
-import ensalada from "../../img/ensalada.png";
-import forde from "../../img/Food.png";
+import Bowl  from "../../img/Bowl.png";
+import ensalada  from "../../img/Bowl.png";
+import Tacos  from "../../img/Tacos.png";
+import quiota from "../../img/Quinoa.png";
+import pechuga from "../../img/pechuga de pollo.png";
  import sopa from "../../img/sopa1.png";
-import Header from "../Header/Header";
 import Album from "../Album/Album";
 import CookieAlert from '../CookieAlert';
 import { useCookies } from 'react-cookie';
@@ -14,9 +16,9 @@ const Ingrdiente = [
         id:'#staticBackdrop1',
         titulo: 'Ensalada de Quinoa y Verduras:',
         descriccion:'Quinoa, espinacas, tomate cherry, pepino, aguacate y aderezo de limón.',
-        estilo:'seccion seccion-2 row align-items-center',
+        estilo:'seccion seccion-1 row align-items-center justify-content-center',
         valor:'staticBackdrop1',
-        img:forde,
+        img:quiota,
         posicion:'left'
 
 
@@ -25,9 +27,9 @@ const Ingrdiente = [
         id:'#staticBackdrop2',
         titulo: 'Pechuga de Pollo a la Parrilla con Limón:',
         descriccion:'Ingredientes: Pechuga de pollo, aceite de oliva, ajo, limón, sal y pimienta.',
-        estilo:'seccion seccion-3 row align-items-center',
+        estilo:'seccion seccion-2 row align-items-center justify-content-center',
         valor:'staticBackdrop2',
-        img:forde,
+        img:pechuga,
         posicion:''
 
 
@@ -36,9 +38,9 @@ const Ingrdiente = [
         id:'#staticBackdrop3',
         titulo: 'Tacos de Pescado con Salsa de Aguacate:',
         descriccion:'Ingredientes: Filete de pescado, tortillas de maíz, repollo rallado y salsa de aguacate.',
-        estilo:'seccion seccion-4 row align-items-center',
+        estilo:'seccion seccion-3 row align-items-center justify-content-center',
         valor:'staticBackdrop3',
-        img:ensalada,
+        img:Tacos,
         posicion:'left'
 
 
@@ -47,10 +49,21 @@ const Ingrdiente = [
         id:'#staticBackdrop4',
         titulo: 'Bowl de Burrito con Arroz Integral:',
         descriccion:'Ingredientes: Arroz integral, frijoles negros, maíz, aguacate, tomate y cilantro.',
-        estilo:'seccion seccion-4 row align-items-center',
+        estilo:'seccion seccion-4 row align-items-center justify-content-center',
         valor:'staticBackdrop4',
-        img:ensalada,
+        img:Bowl,
         posicion:''
+
+
+},
+     {
+        id:'#staticBackdrop4',
+        titulo: 'Bowl de Burrito con Arroz Integral:',
+        descriccion:'Ingredientes: Arroz integral, frijoles negros, maíz, aguacate, tomate y cilantro.',
+        estilo:'seccion seccion-4 row align-items-center justify-content-center',
+        valor:'staticBackdrop4',
+        img:sopa,
+        posicion:'left'
 
 
 },
@@ -59,7 +72,6 @@ const Ingrdiente = [
 
 
 const Receta_1 ={
-    Titulo:'Ingrediente',
     A:'1 taza de quinoa',
     B:'2 tazas de espinacas frescas',
     C:'1 taza de tomates cherry, cortados por la mitad',
@@ -70,7 +82,6 @@ const Receta_1 ={
     I:'Sal y pimienta al gusto',
 }
 const Instrucciones_1 ={
-    Titulo:'Instrucciones',
     A:'Cocina la Quinoa',
     B:'Enjuaga la quinoa bajo agua fría.',
     C:'Cocina la quinoa según las instrucciones del paquete',
@@ -79,7 +90,6 @@ const Instrucciones_1 ={
    
 }
 const Prepara_1 ={
-    Titulo:'',
     A:'Lava y corta las espinacas en trozos más pequeños si es necesario.',
     B:'Corta los tomates cherry por la mitad.',
     C:'Pela y corta el pepino en rodajas finas.',
@@ -100,13 +110,13 @@ const Albums =[
         id: 1,
         Titulo: "Bowl de Burrito con Arroz Integral:", 
         Descriccion:"Ingredientes: Arroz integral, frijoles negros, maíz, aguacate, tomate y cilantro.",
-        Img:sopa
+        Img:Bowl
     },
     {
         id: 2,
         Titulo: "Bowl de Burrito con Arroz Integral:", 
         Descriccion:"Ingredientes: Arroz integral, frijoles negros, maíz, aguacate, tomate y cilantro.",
-        Img:forde
+        Img:pechuga
     },
     {
         id: 3,
@@ -130,7 +140,7 @@ const Albums =[
         id: 6,
         Titulo: "Bowl de Burrito con Arroz Integral:", 
         Descriccion:"Ingredientes: Arroz integral, frijoles negros, maíz, aguacate, tomate y cilantro.",
-        Img:sopa
+        Img:Tacos
     },
 
 
@@ -152,8 +162,7 @@ const [cookies, setCookie] = useCookies(['cookieAccepted']);
   
   return (
     <>
-    <Header/>
-    <main className="Home">
+    <main className="Home ">
 
     {Ingrdiente.map( (element , index) => {
         return(
@@ -162,7 +171,7 @@ const [cookies, setCookie] = useCookies(['cookieAccepted']);
             key={index}
             img={element.img}
             posicion={element.posicion}
-            titulo={element.estilo}
+            titulo={element.titulo}
              descricion={element.descriccion}
                 estilo={element.estilo}
                 id={element.id}
@@ -171,6 +180,7 @@ const [cookies, setCookie] = useCookies(['cookieAccepted']);
               Instrucciones={Instrucciones_1}
               Prepara={Prepara_1}
               Mezcla={Mezcla}
+              
 
               />
             </>

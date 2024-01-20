@@ -5,6 +5,11 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/js/dist/modal.js'
 import 'bootstrap-icons/font/bootstrap-icons.json'
+import 'bootstrap/js/dist/dropdown.js'
+import 'bootstrap/js/dist/popover.js'
+import 'bootstrap/js/dist/base-component.js'
+import 'bootstrap/js/src/util/focustrap.js'
+import 'animate.css'
 
 
 
