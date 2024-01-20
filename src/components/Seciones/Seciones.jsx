@@ -69,6 +69,8 @@ function Seciones({
                 className="img-fluid"
                 src={img}
                 alt="Ensalada de Quinoa y Verduras"
+                width={600}
+                height={600}
               />
             </div>
             <div className="col-12 col-md-4 mt-3 text-center">
@@ -101,8 +103,8 @@ function Seciones({
             </div>
             <div className="col-md-5 col-12 p-0">
               <img
-                width={600}
-                height={600}
+                width={500}
+                height={500}
                 className="img-fluid"
                 src={img}
                 alt="Ensalada de Quinoa y Verduras"

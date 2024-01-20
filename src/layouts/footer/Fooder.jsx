@@ -7,7 +7,7 @@ import './Footer.css'
 function Footer(){
     return(
      <>
-<footer className="text-center text-lg-start bg-body-tertiary text-muted mt-5">
+<footer className="text-center text-lg-start bg-body-tertiary text-muted ">
 
 <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
 

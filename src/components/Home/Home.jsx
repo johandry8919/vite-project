@@ -56,17 +56,7 @@ const Ingrdiente = [
 
 
 },
-     {
-        id:'#staticBackdrop4',
-        titulo: 'Bowl de Burrito con Arroz Integral:',
-        descriccion:'Ingredientes: Arroz integral, frijoles negros, maíz, aguacate, tomate y cilantro.',
-        estilo:'seccion seccion-4 row align-items-center justify-content-center',
-        valor:'staticBackdrop4',
-        img:sopa,
-        posicion:'left'
-
-
-},
+     
 ]
 
 
@@ -187,16 +177,16 @@ const [cookies, setCookie] = useCookies(['cookieAccepted']);
         )
     })}
 
-        <h2 className="text-center p-3">MAS RESETAS SALUDAVBLE <i className="bi bi-calendar2-event"></i> </h2>
+        {/* <h2 className="text-center p-3">MAS RESETAS SALUDAVBLE <i className="bi bi-calendar2-event"></i> </h2>
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 bg-dark">
 
         {Albums.map(element => { 
         return(
             <Album key={element.id} Titulo={element.Titulo} DesCricion={element.Descriccion} imagenes={element.Img}/>
         )})}
-        </div>
+        </div> */}
 
-        <div>
+    <div>
 
       <CookieAlert onAccept={handleAccept} onReject={handleReject} />
     </div>
