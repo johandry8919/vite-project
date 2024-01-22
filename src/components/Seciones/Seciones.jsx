@@ -3,28 +3,26 @@ import Modal from "../Modal/Modal";
 import MyButton from "../MyButton/MyButton";
 import "./seccion.css";
 import { useState } from "react";
+import {SiSouthwestairlines} from '@icons-pack/react-simple-icons';
 
 function Seciones({
   img,
   posicion,
   titulo,
-  descricion,
+  Ingredientes,
   estilo,
   id,
   valor,
-  restas,
-  Instrucciones,
-  Prepara,
-  Mezcla,
+  Titulo_modal,
+
 }) {
   
     const [isVisible, setIsVisible] = useState(false);
-    const [isVisible2, setIsVisible2] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
       const triggerPosition = 200; // Puedes ajustar esto según sea necesario
-      const triggerPosition2 =500; // Puedes ajustar esto según sea necesario
       const scrollPosition = window.scrollY;
 
 
@@ -32,8 +30,6 @@ function Seciones({
 
       if (scrollPosition > triggerPosition && !isVisible) {
         setIsVisible(true);
-      }else if (scrollPosition  > triggerPosition2 && !isVisible) {
-        setIsVisible2(true);
       }
     };
 
@@ -50,14 +46,10 @@ function Seciones({
     transform: isVisible ? "translateY(0)" : "translateY(20px)",
     transition: "opacity 0.5s, transform 0.5s",
   };
-  const containerStyle2 = {
-    opacity: isVisible2 ? 1 : 0,
-    transform: isVisible2 ? "translateY(0)" : "translateY(20px)",
-    transition: "opacity 0.5s, transform 0.5s",
-  };
+
   return (
     <>
-      <section className={estilo}>
+      <section key={valor} className={estilo}>
         {posicion == "left" ? (
           <div className="col-md-12 col-12 row  align-items-center justify-content-around">
             <div
@@ -73,33 +65,29 @@ function Seciones({
                 height={600}
               />
             </div>
-            <div className="col-12 col-md-4 mt-3 text-center">
-              <h2>{titulo}</h2>
+            <div className="col-12 col-md-6 text-center">
+              <h2 className="fs-1"> <SiSouthwestairlines title='My title' color='#4C4A73' size={30}/>{titulo} </h2>
               <p
                 id="animeContainer"
                 style={containerStyle}
-                className="parrafo fs-2  mt-5 p-3"
+                className="parrafo fs-2  p-2"
               >
-                {descricion}
+                {Ingredientes}
               </p>
               <MyButton id={id} />
             </div>
 
-            <Modal
-              Descriccion={restas}
-              titulo={titulo}
-              staticBackdrop={valor}
-              restas={restas}
-              Instrucciones={Instrucciones}
-              Prepara={Prepara}
-              Mezcla={Mezcla}
-            />
+            <Modal 
+            staticBackdrop={valor}
+            titulo={Titulo_modal}
+
+             />
           </div>
         ) : (
           <div className="mt-2 col-md-12 col-12 row  align-items-center justify-content-around">
-            <div className="col-12 col-md-4 mt-3 text-center cont">
-              <h2>{titulo}</h2>
-              <p className="parrafo fs-2 mt-6 mt-4 p-3">{descricion}</p>
+            <div className="col-12 col-md-6 mt-2 text-center cont">
+              <h2 className="fs-1">{titulo}</h2>
+              <p className="parrafo fs-2 p-2">{Ingredientes}</p>
             </div>
             <div className="col-md-5 col-12 p-0">
               <img
@@ -112,14 +100,9 @@ function Seciones({
               <MyButton id={id} />
             </div>
 
-            <Modal
-              Descriccion={restas}
-              titulo={titulo}
-              staticBackdrop={valor}
-              restas={restas}
-              Instrucciones={Instrucciones}
-              Prepara={Prepara}
-              Mezcla={Mezcla}
+            <Modal staticBackdrop={valor}
+            titulo={Titulo_modal}
+              
             />
           </div>
         )}
